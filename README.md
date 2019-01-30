@@ -1,62 +1,64 @@
-ÒªÊ¹ÓÃ´Ë¿âµÄexeÏîÄ¿ÏÈÓÃnuget°²×°CefSharp.WinForms ºÍ CefSharp.Common  Á½¸ö°ü£º
-Install-Package CefSharp.WinForms -Version 49.0.1
-Install-Package CefSharp.Common -Version 49.0.1
+è¦ä½¿ç”¨æ­¤åº“çš„exeé¡¹ç›®å…ˆç”¨nugetå®‰è£…CefSharp.WinForms å’Œ CefSharp.Common  ä¸¤ä¸ªåŒ…ï¼š  
+Install-Package CefSharp.WinForms -Version 49.0.1  
+Install-Package CefSharp.Common -Version 49.0.1  
 
-×¢Òâ£¬°æ±¾49.0.1ÎªÖ§³ÖXPµÄ×îºóÒ»¸ö°æ±¾£¬ÇÒ.net»·¾³Îª4.0£¬¶ø½ÏĞÂµÄ°æ±¾ÖÁÉÙĞèÒª4.5.2µÄ»·¾³
+æ³¨æ„ï¼Œç‰ˆæœ¬49.0.1ä¸ºæ”¯æŒXPçš„æœ€åä¸€ä¸ªç‰ˆæœ¬ï¼Œä¸”.netç¯å¢ƒä¸º4.0ï¼Œè€Œè¾ƒæ–°çš„ç‰ˆæœ¬è‡³å°‘éœ€è¦4.5.2çš„ç¯å¢ƒ  
+æœ¬demoé»˜è®¤ä½¿ç”¨49ç‰ˆæœ¬çš„APIï¼Œä¸”å·²æµ‹è¯•è¿‡ç‰ˆæœ¬49å’Œ71åœ¨åˆ‡æ¢ä¸¤å¥ä»£ç åå‡å¯ä½¿ç”¨ã€‚ä½¿ç”¨71æ—¶åœ¨BrowserManagerä¸­æœ‰å·®å¼‚çš„ä»£ç å·²æ ‡è®°å‡ºï¼Œæ³¨é‡Šæ‰æ ‡è®°ä¸º //è€ç‰ˆæœ¬ çš„è¡Œï¼Œå¯ç”¨æ ‡è®°ä¸º //æ–°ç‰ˆæœ¬ çš„è¡Œå³å¯ï¼Œå…¶ä»–æ— å·®å¼‚
+
 =============================
 
-app.manifest ĞèÒª·ÅÔÚexeµÄÍ¬Ä¿Â¼
+app.manifest éœ€è¦æ”¾åœ¨exeçš„åŒç›®å½•
 
 ====================
 
-½â¾ö·½°¸µÄ¡°ÅäÖÃÊôĞÔ¡±ºÍexeÏîÄ¿µÄÉú³ÉÊôĞÔ£¬¾ùĞèÒªÉèÖÃÎªx86
+è§£å†³æ–¹æ¡ˆçš„â€œé…ç½®å±æ€§â€å’Œexeé¡¹ç›®çš„ç”Ÿæˆå±æ€§ï¼Œå‡éœ€è¦è®¾ç½®ä¸ºx86
 
 ====================
 
-exeµÄmainº¯ÊıÀï£¬Ìí¼ÓÍË³öÊÂ¼şÀ´¹Ø±Õä¯ÀÀÆ÷:
+exeçš„mainå‡½æ•°é‡Œï¼Œæ·»åŠ é€€å‡ºäº‹ä»¶æ¥å…³é—­æµè§ˆå™¨:  
 
-Application.ApplicationExit += Application_ApplicationExit;
+Application.ApplicationExit += Application_ApplicationExit;  
 
-private static void Application_ApplicationExit(object sender, EventArgs e)
-{
-        //³ÌĞòÍË³öÊ±¼ÇµÃµ÷ÓÃshutdown
-        Cef.Shutdown();
-}
+private static void Application_ApplicationExit(object sender, EventArgs e)  
+{  
+        //ç¨‹åºé€€å‡ºæ—¶è®°å¾—è°ƒç”¨shutdown  
+        Cef.Shutdown();  
+}  
+
+====================================  
+BrowserManager.Instance.Browserå°±æ˜¯æµè§ˆå™¨æ§ä»¶ï¼Œè¿™æ ·æ·»åŠ æµè§ˆå™¨åˆ°ä¸€ä¸ªpannelé‡Œé¢:  
+
+BrowserManager.Instance.Browser.Dock = DockStyle.Fill;  
+BrowserManager.Instance.Browser.Load("https://www.baidu.com/");//æµè§ˆå™¨åŠ è½½çš„ç½‘å€  
+panel1.Controls.Add(BrowserManager.Instance.Browser);  
 
 ====================================
-BrowserManager.Instance.Browser¾ÍÊÇä¯ÀÀÆ÷¿Ø¼ş£¬ÕâÑùÌí¼Óä¯ÀÀÆ÷µ½Ò»¸öpannelÀïÃæ:
+.netå’Œjsäº¤äº’
 
-BrowserManager.Instance.Browser.Dock = DockStyle.Fill;
-BrowserManager.Instance.Browser.Load("https://www.baidu.com/");//ä¯ÀÀÆ÷¼ÓÔØµÄÍøÖ·
-panel1.Controls.Add(BrowserManager.Instance.Browser);
+åœ¨c#ä»£ç ä¸­é€šçŸ¥webé¡µé¢æ‰§è¡Œjsä»£ç ï¼š  
+BrowserManager.Instance.Browser.ExecuteScriptAsync("var a=1;b=2;alert(a+b);console.log(document.location.href);document.getElementById('myBtn');");  
 
-====================================
-.netºÍjs½»»¥
+åœ¨webé¡µé¢è°ƒç”¨c#ä»£ç :  
+InteractiveManagerç±»å·²ç»è¢«æ³¨å†Œåˆ°äº†webçš„jsç¯å¢ƒä¸­ï¼Œèµ‹å€¼ç»™äº†å˜é‡im  
 
-ÔÚc#´úÂëÖĞÍ¨ÖªwebÒ³ÃæÖ´ĞĞjs´úÂë£º
-BrowserManager.Instance.Browser.ExecuteScriptAsync("var a=1;b=2;alert(a+b);console.log(document.location.href);document.getElementById('myBtn');");
+åœ¨webç¯å¢ƒç›´æ¥è°ƒç”¨ im.xxxå³å¯è°ƒç”¨åˆ°InteractiveManagerç±»å¯¹åº”çš„å‡½æ•°ï¼ˆæ³¨æ„ï¼Œjsä¸­è°ƒç”¨æ—¶å‡½æ•°åé¦–å­—æ¯å˜å°å†™ï¼‰å¦‚:  
+<script>  
+$("#myBtn").click(function(){ im.vehicleForm();});  
+</script>  
+ç”±äºè¿™éƒ½æ˜¯å¼‚æ­¥è°ƒç”¨ï¼Œè¦å–è¿”å›ç»“æœçš„è¯ï¼Œéœ€è¦ä¼ å…¥ä¸€ä¸ªå›è°ƒå‡½æ•°åˆ°.thenä¸­ï¼Œå¦‚ï¼š  
+<script>  
+$("#myBtn").click(function(){   
+	im.getHphm().then(function(ret){ alert(ret); }); //è¿™é‡Œçš„retå°±æ˜¯getHphmçš„è¿”å›å€¼  
+});  
+</script>  
 
-ÔÚwebÒ³Ãæµ÷ÓÃc#´úÂë:
-InteractiveManagerÀàÒÑ¾­±»×¢²áµ½ÁËwebµÄjs»·¾³ÖĞ£¬¸³Öµ¸øÁË±äÁ¿im
+æ³¨æ„ï¼šimå¯¹è±¡æ˜¯åœ¨é¡µé¢åŠ è½½å®Œæˆåæ‰æ³¨å…¥çš„ï¼Œå¦‚æœä½ åœ¨é¡µé¢åˆšåŠ è½½å®Œå°±ç›´æ¥è°ƒç”¨imå¯èƒ½è¿™æ—¶imè¿˜æœªè¢«èµ‹å€¼ï¼Œåˆ™éœ€è¦è¿™æ ·è°ƒç”¨ï¼š  
+<script>  
+(async () =>{  
+	await CefSharp.BindObjectAsync('im');//ç­‰å¾…imæ³¨å†Œå®Œæˆ  
+	//ä¸Šé¢å¥å®Œäº†ä¹‹åè¿™é‡Œè°ƒç”¨å°±æœ‰imäº†  
+	im.vehicleForm();  
+})();  
+</script>  
 
-ÔÚweb»·¾³Ö±½Óµ÷ÓÃ im.xxx¼´¿Éµ÷ÓÃµ½InteractiveManagerÀà¶ÔÓ¦µÄº¯Êı£¨×¢Òâ£¬jsÖĞµ÷ÓÃÊ±º¯ÊıÃûÊ××ÖÄ¸±äĞ¡Ğ´£©Èç:
-<script>
-$("#myBtn").click(function(){ im.vehicleForm();});
-</script>
-ÓÉÓÚÕâ¶¼ÊÇÒì²½µ÷ÓÃ£¬ÒªÈ¡·µ»Ø½á¹ûµÄ»°£¬ĞèÒª´«ÈëÒ»¸ö»Øµ÷º¯Êıµ½.thenÖĞ£¬Èç£º
-<script>
-$("#myBtn").click(function(){ 
-	im.getHphm().then(function(ret){ alert(ret); }); //ÕâÀïµÄret¾ÍÊÇgetHphmµÄ·µ»ØÖµ
-});
-</script>
-
-×¢Òâ£ºim¶ÔÏóÊÇÔÚÒ³Ãæ¼ÓÔØÍê³Éºó²Å×¢ÈëµÄ£¬Èç¹ûÄãÔÚÒ³Ãæ¸Õ¼ÓÔØÍê¾ÍÖ±½Óµ÷ÓÃim¿ÉÄÜÕâÊ±im»¹Î´±»¸³Öµ£¬ÔòĞèÒªÕâÑùµ÷ÓÃ£º
-<script>
-(async () =>{
-	await CefSharp.BindObjectAsync('im');//µÈ´ıim×¢²áÍê³É
-	//ÉÏÃæ¾äÍêÁËÖ®ºóÕâÀïµ÷ÓÃ¾ÍÓĞimÁË
-	im.vehicleForm();
-})();
-</script>
-
-ÔÚInteractiveManagerÖĞÌí¼ÓµÄpublicµÄÊôĞÔºÍº¯Êı¶¼¿ÉÒÔÔÚjsÖĞ±»µ÷ÓÃ£¬µ«×Ö¶Î²»¿ÉÒÔ¡£
+åœ¨InteractiveManagerä¸­æ·»åŠ çš„publicçš„å±æ€§å’Œå‡½æ•°éƒ½å¯ä»¥åœ¨jsä¸­è¢«è°ƒç”¨ï¼Œä½†å­—æ®µä¸å¯ä»¥ã€‚  
